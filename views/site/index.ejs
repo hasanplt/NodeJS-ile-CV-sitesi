@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title><%=settings.title%></title>
+  <meta content="<%=settings.meta_description%>" name="description">
+
+  <!-- Favicons -->
+  <link href="assets/img/<%=settings.mini_icon%>" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v3.7.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/<%=about.photoLink%>" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="/"><%=about.name%></a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="<% if(socialMedia.twitter == 0){ %> <%="#"%> <% }else{ %>https://twitter.com/<%=socialMedia.twitter%> <% } %>" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="<% if(socialMedia.facebook == 0){ %> <%="#"%> <% }else{ %>https://www.facebook.com/<%=socialMedia.facebook%>/ <% } %>" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="<% if(socialMedia.instagram == 0){ %> <%="#"%> <% }else{ %>https://www.instagram.com/<%=socialMedia.instagram%>/ <% } %>" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="<% if(socialMedia.github == 0){ %> <%="#"%> <% }else{ %>https://www.github.com/<%=socialMedia.github%>/ <% } %>" target="_blank" class="google-plus"><i class="bx bxl-github"></i></a>
+          <a href="<% if(socialMedia.linkedin == 0){ %> <%="#"%> <% }else{ %>https://www.linkedin.com/in/<%=socialMedia.linkedin%>/ <% } %>" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Anasayfa</span></a></li>
+          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Hakkımda</span></a></li>
+          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Hayat</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolyo</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Hobilerim</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>İletişim</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1><%=about.name%></h1>
+      <p>Ben <span class="typed" data-typed-items="<%=about.tag%>"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Hakkında</h2>
+          <p><%=about.shortInfo%></p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/<%=about.photoLink%>" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3><%=about.tag%></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <% 
+                    var birthday = about.birthday;  
+                    var birthdayDateObject = new Date(birthday);
+                    var bugün = new Date();
+                    var yas = bugün.getFullYear() - birthdayDateObject.getFullYear();
+                    var Aylar = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+                    var birthdayString = birthdayDateObject.getDate() + " " + Aylar[birthdayDateObject.getMonth()] + " " + birthdayDateObject.getFullYear();
+                  %>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Doğum Günü:</strong> <span><%=birthdayString%></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Telefon:</strong> <span><%=about.phone%></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Şehir:</strong> <span><%=about.city%></span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Yaş:</strong> <span><%=yas%></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Eğitim:</strong> <span><%=about.education%></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Çalışıyor</span></li>
+                </ul>
+              </div>
+            </div>
+            <p><%=about.longInfo%></p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Yetenekler</h2>
+          <p><%=skills.text%></p>
+        </div>
+
+        <%
+          var skillsDatas = skills.skills;
+          var levelsDatas = skills.levels;
+          var skillsLength = skillsDatas.length;
+          var skillsControl = Math.round(skillsLength/2);
+        %>
+        <div class="row skills-content">
+          <% for(i = 0; i < skillsLength; i++){ %>
+
+            <% if(i == 0) { %> <div class="col-lg-6" data-aos="fade-up"> <% } %>
+          
+            <div class="progress">
+              <span class="skill"><%=skillsDatas[i]%> <i class="val"><%=levelsDatas[i]%>%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="<%=levelsDatas[i]%>" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <% if(i == (skillsControl - 1)) { %> </div> <div class="col-lg-6" data-aos="fade-up"> <% } %>
+          
+          <% } %>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Hayat</h2>
+          <p>Kısaca benim hakkında bilgiler verdiğim, eğitim ve çalışma hayatım hakkında bilgiler. </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Kısaca Ben</h3>
+            <div class="resume-item pb-0">
+              <h4><%=about.name%></h4>
+              <p><em><%=about.shortInfo%></em></p>
+              <ul>
+                <li><%=about.city%></li>
+                <li><%="0"+about.phone%></li>
+                <li><%=about.mail%></li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Eğitim Hayatı</h3>
+            <% for(i=education.length;i > 0; i--){ %>
+              <div class="resume-item">
+                <h4><%=education[(i - 1)].title%></h4>
+                <h5><%=education[(i - 1)].yearRange%></h5>
+                <p><em><%=education[(i - 1)].faculty%></em></p>
+                <p><%=education[(i - 1)].text%></p>
+              </div>
+            <% } %>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Profesyonel Tecrübe</h3>
+            <% for(i=(experience.length - 1);i >= 0;i--){ %>
+              <div class="resume-item">
+                <h4><%=experience[i].title%></h4>
+                <h5><%=experience[i].yearRange%></h5>
+                <p><em><%=experience[i].city%></em></p>
+                <ul>
+                  <% for(a=0;a < experience[i].InfoItems.length; a++){ %>
+                    <li><%=experience[i].InfoItems[a]%></li>
+                  <% } %>
+                </ul>
+              </div>
+            <% } %>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Github Projeler</h2>
+          <p>Bu kısımda uğraştığım dillerle ilgili githuba yüklediğim projeleri sizlere sunuyorum. Github projelerime sol üstteki github simgesine basarak ulaşabilirsiniz.</p>
+        </div>
+        <% let categories = new Set([]); %>
+        <% for(i=0;i<githubProjects.length;i++){ %>
+          <% let category = githubProjects[i].category.split(" "); %>
+          <% category.forEach(element => {
+            categories.add(element);
+          }); %>
+        <% } %>
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Hepsi</li>
+              <% categories.forEach(element => { %> 
+                <li data-filter=".<%=element%>"><%=element%></li>
+              <% }); %>  
+                
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <% for(i = 0; i < githubProjects.length; i++){ %>
+          <div class="col-lg-4 col-md-6 portfolio-item <%=githubProjects[i].category%>">
+            <div class="portfolio-wrap">
+              <img src="admin/assets/img/projectsImages/<%=githubProjects[i].photo_link%>" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="admin/assets/img/projectsImages/<%=githubProjects[i].photo_link%>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<%=githubProjects[i].name%>"><i class="bx bx-plus"></i></a>
+                <a href="<%=githubProjects[i].github_link%>" target="_blank" title="Detayları Gör"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+          
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Hobilerim / Uğraşlarım</h2>
+          <p>İşim dışındaki hobilerim. Uğraşmayı, keşfetmeyi vb. sevdiğim şeyler.</p>
+        </div>
+
+        <div class="row">
+          <% for(i = 0; i < hobby.length; i++){ %>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="<%=i*100%>">
+              <div class="icon"><i class="<%=hobby[i].icon%>"></i></div>
+              <h4 class="title"><a href=""><%=hobby[i].title%></a></h4>
+              <p class="description"><%=hobby[i].text%></p>
+            </div>
+          <% } %>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>İletişim</h2>
+          <p>Bu kısımdan benimle iletişime geçebilirsiniz. Attığınız mesaj bana mail ile iletilecektir. Size geri dönüş sağlayabilmem için lütfen geçerli bir eposta adresi giriniz. Aynı zamanda isterseniz mesaj kısmına farklı bir iletişim yolu yazabilirsiniz.</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="/iletisim/ekle" method="POST" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">İsmin</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Email Adresin</label>
+                  <input type="email" class="form-control" name="mail" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Konu</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Mesaj</label>
+                <textarea class="form-control" name="text" rows="10" required></textarea>
+              </div>
+              
+              <div class="text-center"><button type="submit">Mesajı Gönder</button></div>
+              <% if (durum == "basarili") { %>
+                <p style="color: green; text-align: center; font-size: 30px; margin-top: 10px;">Mesaj Gönderiminiz Başarılı!</p>
+              <% }else if(durum == "basarisiz"){ %>
+                <p style="color: red; text-align: center; font-size: 30px; margin-top: 10px;">Mesaj Gönderiminiz Başarısız! Tekrar Deneyiniz...</p>
+                <% } %>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>iPortfolio</span></strong>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+</body>
+
+</html>

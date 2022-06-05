@@ -1,0 +1,91 @@
+    <%-include("inc/header.ejs")%>
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/widgets/modules-widgets.css">  
+    <link href="/admin/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />  
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/elements/alert.css">
+    <link href="/admin/plugins/flatpickr/flatpickr.css" rel="stylesheet" type="text/css">
+    <link href="/admin/plugins/noUiSlider/nouislider.min.css" rel="stylesheet" type="text/css">
+    <link href="/admin/plugins/flatpickr/custom-flatpickr.css" rel="stylesheet" type="text/css">
+    <link href="/admin/plugins/noUiSlider/custom-nouiSlider.css" rel="stylesheet" type="text/css">
+    <link href="/admin/plugins/bootstrap-range-Slider/bootstrap-slider.css" rel="stylesheet" type="text/css">
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="row layout-top-spacing">
+
+                    <div id="basic" class="col-lg-12 layout-spacing">
+
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Tecrübe Ekle</h4>
+                                    </div>                 
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area">
+                                <div class="row">
+                                    <div class="col-lg-12 col-12 mx-auto">
+                                        <form method="POST" action="/admin/tecrubeler/ekle">
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Başlık</p>
+                                                    <input type="text" name="title" required class="form-control" placeholder="Tecrübeyi edindiğiniz ismini giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Yıl Aralığı</p>
+                                                    <input type="text" name="yearRange" required class="form-control" placeholder="Tecrübeyi edindiğiniz yıl aralığını giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Şehir</p>
+                                                    <input type="text" name="city" required class="form-control" placeholder="Tecrübeyi edindiğiniz şehri giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Bilgi Maddeleri</p>
+                                                    <input type="text" name="InfoItems[0]" required class="form-control" placeholder="(1) Tecrübe ile ilgili bilgi giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <input type="text" name="InfoItems[1]" required class="form-control" placeholder="(2) Tecrübe ile ilgili bilgi giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <input type="text" name="InfoItems[2]" required class="form-control" placeholder="(3) Tecrübe ile ilgili bilgi giriniz...">
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Ekle" class="mt-4 btn btn-primary">
+                                        </form>
+                                    </div>                                        
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        
+        </div>
+        <!--  END CONTENT AREA  -->
+
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+    <script src="/admin/assets/js/widgets/modules-widgets.js"></script>
+    <script src="/admin/assets/js/scrollspyNav.js"></script>
+    <script src="/admin/plugins/flatpickr/flatpickr.js"></script>
+    <script src="/admin/plugins/noUiSlider/nouislider.min.js"></script>
+
+    <script src="/admin/plugins/flatpickr/custom-flatpickr.js"></script>
+    <script src="/admin/plugins/noUiSlider/custom-nouiSlider.js"></script>
+    <script src="/admin/plugins/bootstrap-range-Slider/bootstrap-rangeSlider.js"></script>
+
+    <%-include("inc/footer.ejs")%>

@@ -1,0 +1,89 @@
+    <%-include("inc/header.ejs")%>
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/widgets/modules-widgets.css">  
+    <link href="/admin/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />  
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/elements/alert.css">
+    <style>
+        .btn-light { border-color: transparent; }
+    </style>
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="row layout-top-spacing">
+
+                    <div id="basic" class="col-lg-12 layout-spacing">
+                        <% if (durum == true) { %>
+                            <div class="alert alert-light-success border-0 mb-4" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
+                                <strong>Başarılı!</strong> Sosyal medya verileriniz başarıyla güncellendi.</button>
+                            </div> 
+                        <% }else if(durum == false){ %>
+                            <div class="alert alert-light-danger border-0 mb-4" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
+                                <strong>Başarısız!</strong> Sosyal medya verileriniz güncellenemedi. Bir sıkıntı çıktı...</button>
+                            </div>
+                        <% } %>
+                        
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Sosyal Medya Bilgileri Düzenle</h4>
+                                        
+                                    </div>                 
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area">
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-12 mx-auto">
+                                        <form method="POST" action="/admin/sosyalmedya">
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Twitter</p>
+                                                    <input type="text" name="twitter" class="form-control" value="<%=sosyalmedya.twitter%>" placeholder="Twitter adresinizi giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>İnstagram</p>
+                                                    <input type="text" name="instagram" class="form-control" value="<%=sosyalmedya.instagram%>" placeholder="İnstagram adresinizi giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Facebook</p>
+                                                    <input type="text" name="facebook" class="form-control" value="<%=sosyalmedya.facebook%>" placeholder="Facebook adresinizi giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Github</p>
+                                                    <input type="text" name="github" class="form-control" value="<%=sosyalmedya.github%>" placeholder="Github adresinizi giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Linkedin</p>
+                                                    <input type="text" name="linkedin" class="form-control" value="<%=sosyalmedya.linkedin%>" placeholder="Linkedin adresinizi giriniz...">
+                                                </div>
+                                            </div>
+                                            <p>Hesabınız yok ise boş bırakınız.</p>
+                                            <input type="submit" name="txt" value="Kaydet" class="mt-4 btn btn-primary">
+                                        </form>
+                                    </div>                                        
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        
+        </div>
+        <!--  END CONTENT AREA  -->
+
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <%-include("inc/footer.ejs")%>
+    
+    <script src="/admin/assets/js/widgets/modules-widgets.js"></script>
+    <script src="/admin/assets/js/scrollspyNav.js"></script>

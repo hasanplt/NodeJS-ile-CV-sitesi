@@ -1,0 +1,79 @@
+    <%-include("inc/header.ejs")%>
+    <link href="/admin/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/forms/theme-checkbox-radio.css">
+    <link href="/admin/assets/css/tables/table-basic.css" rel="stylesheet" type="text/css" />
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="row layout-top-spacing">
+
+                    <div id="tableProgress" class="col-lg-12 col-12 layout-spacing">
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4 style="text-align: center;">Mesajlar </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area">
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th>Gönderen</th>
+                                                <th>Gönderen Mail</th>
+                                                <th>Görüntüleme</th>
+                                                <th class="text-center">İşlem</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for( let index = 0; index < mesajlar.length; index++ ) { %>
+                                                <tr id="<%=mesajlar[index]._id%>">
+                                                    <td class="text-center"><%=index + 1%></td>
+                                                    <td><%=mesajlar[index].name%></td>
+                                                    <td><%=mesajlar[index].mail%></td>
+                                                    <td>
+                                                        <% if(mesajlar[index].see){ %>
+                                                            <button class="btn btn-success mb-2">Görüntüledin</button>
+                                                        <% }else{ %>
+                                                            <button class="btn btn-warning mb-2">Yeni Mesaj!</button>
+                                                        <% } %>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <ul class="table-controls">
+                                                            <li><a href="/admin/mesajlar/duzenle/<%=mesajlar[index]._id%>"  data-toggle="tooltip" data-placement="top" title="Göster"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            <% } %>
+                                            <% if(mesajlar.length == 0){ %>
+                                                <tr>
+                                                    <td colspan="5" style="text-align: center;">Herhangi bir mesajınız bulunmamakta.</td>
+                                                </tr>
+                                            <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        
+        </div>
+
+        <!--  END CONTENT AREA  -->
+
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+    <script src="/admin/assets/js/scrollspyNav.js"></script>
+    <%-include("inc/footer.ejs")%>

@@ -1,0 +1,109 @@
+    <%-include("inc/header.ejs")%>
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/widgets/modules-widgets.css">  
+    <link href="/admin/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />  
+    <link rel="stylesheet" type="text/css" href="/admin/assets/css/elements/alert.css">
+    <style>
+        .btn-light { border-color: transparent; }
+    </style>
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="row layout-top-spacing">
+
+                    <div id="basic" class="col-lg-12 layout-spacing">
+                        <% if (durum == true) { %>
+                            <div class="alert alert-light-success border-0 mb-4" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
+                                <strong>Başarılı!</strong> Hakkımda verileriniz başarıyla güncellendi.</button>
+                            </div> 
+                        <% }else if(durum == false){ %>
+                            <div class="alert alert-light-danger border-0 mb-4" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
+                                <strong>Başarısız!</strong> Hakkımda verileriniz güncellenemedi. Bir sıkıntı çıktı...</button>
+                            </div>
+                        <% } %>
+                        
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-header">
+                                <div class="row">
+                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                        <h4>Hakkında Bilgileri Düzenle</h4>
+                                    </div>                 
+                                </div>
+                            </div>
+                            <div class="widget-content widget-content-area">
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-12 mx-auto">
+                                        <form method="POST" action="/admin/hakkinda">
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>İsim</p>
+                                                    <input type="text" required name="name" class="form-control" value="<%=about.name%>" placeholder="Sitede gözükecek kişi ismi giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Tag</p>
+                                                    <input type="text" required name="tag" class="form-control" value="<%=about.tag%>" placeholder="Sitede gözükecek tagi giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Telefon Numarası</p>
+                                                    <input type="text" required name="phone" class="form-control" value="<%=about.phone%>" placeholder="Sitede gözükecek telefon numarasını giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Eğitim</p>
+                                                    <input type="text" required name="education" class="form-control" value="<%=about.education%>" placeholder="Sitede gözükecek eğitim düzeyimi giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Şehir</p>
+                                                    <input type="text" required name="city" class="form-control" value="<%=about.city%>" placeholder="Sitede gözükecek şehir ismi giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Email Adresi</p>
+                                                    <input type="email" required name="mail" class="form-control" value="<%=about.mail%>" placeholder="Sitede gözükecek mail adresini giriniz...">
+                                                </div>
+                                                <div class="col">
+                                                    <p>Doğum günü</p>
+                                                    <input type="date" required name="birthday" class="form-control" value="<%=about.birthdayString%>">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Kısa Bilgilendirme</p>
+                                                    <input type="text" required name="shortInfo" class="form-control" value="<%=about.shortInfo%>" placeholder="Kısa 2 cümle bilgilendirme giriniz...">
+                                                </div>
+                                            </div>
+                                            <div class="form-row mb-4">
+                                                <div class="col">
+                                                    <p>Uzun Bilgilendirme</p>
+                                                    <textarea type="text" required name="longInfo" class="form-control" placeholder="Uzun 5-6 cümle ile bilgilendirme giriniz..."><%=about.longInfo%></textarea>
+                                                </div>
+                                            </div>
+                                            <input type="submit" name="txt" value="Kaydet" class="mt-4 btn btn-primary">
+                                        </form>
+                                    </div>                                        
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        
+        </div>
+        <!--  END CONTENT AREA  -->
+
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <%-include("inc/footer.ejs")%>
+    
+    <script src="/admin/assets/js/widgets/modules-widgets.js"></script>
+    <script src="/admin/assets/js/scrollspyNav.js"></script>
